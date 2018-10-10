@@ -1,0 +1,9 @@
+rootProject.name = 'ui'
+include ':react-native-shopify'
+project(':react-native-shopify').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-shopify/android')
+include ':react-native-vector-icons'
+project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
+//include ':react-native-shopify'
+//project(':react-native-shopify').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-shopify/android')
+
+include ':app'
