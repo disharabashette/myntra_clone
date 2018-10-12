@@ -65,15 +65,7 @@ export default class Product extends Component {
       <Container style={{backgroundColor: '#fdfdfd'}}>
         <Navbar left={left} right={right} title={this.props.product.title} />
         <Content>
-          <Carousel
-              ref={(carousel) => { this._carousel = carousel; }}
-              sliderWidth={Dimensions.get('window').width}
-              itemWidth={Dimensions.get('window').width}
-              onSnapToItem={(index) => this.setState({ activeSlide: index }) }
-              enableSnap={true}
-            >
-                {this.renderImages()}
-            </Carousel>
+          
             <Pagination
               // dotsLength={this.state.product.images.length}
               activeDotIndex={this.state.activeSlide}
@@ -142,7 +134,7 @@ export default class Product extends Component {
               <Col size={3}>
                 <View style={{flex: 1, flexDirection: 'row'}}>
                   <Button style={{flex: 1}} icon light onPress={() => this.setState({quantity: this.state.quantity>1 ? this.state.quantity-1 : 1})} >
-                    <Icon name='remove' type='font-awesome' />
+                    <Icon name='remove' type='materialIcons' />
                   </Button>
                   <View style={{flex: 4, justifyContent: 'center', alignItems: 'center', paddingLeft: 30, paddingRight: 30}}>
                     <Text style={{fontSize: 18}}>{this.state.quantity}</Text>
@@ -156,7 +148,7 @@ export default class Product extends Component {
             <Grid style={{marginTop: 15}}>
               <Col size={3}>
                 <Button block onPress={this.addToCart.bind(this)} style={{backgroundColor: Colors.navbarBackgroundColor}}>
-                  <Text style={{color: "#fdfdfd", marginLeft: 5}}>Add to cart</Text>
+                  <Text style={{color: "black", marginLeft: 5}}>Add to cart</Text>
                 </Button>
               </Col>
               <Col>
@@ -318,10 +310,11 @@ export default class Product extends Component {
 }
 
 const dummyProduct = {
+  
   id: 2,
   title: 'V NECK T-SHIRT',
   description: "Pellentesque orci lectus, bibendum iaculis aliquet id, ullamcorper nec ipsum. In laoreet ligula vitae tristique viverra. Suspendisse augue nunc, laoreet in arcu ut, vulputate malesuada justo. Donec porttitor elit justo, sed lobortis nulla interdum et. Sed lobortis sapien ut augue condimentum, eget ullamcorper nibh lobortis. Cras ut bibendum libero. Quisque in nisl nisl. Mauris vestibulum leo nec pellentesque sollicitudin. Pellentesque lacus eros, venenatis in iaculis nec, luctus at eros. Phasellus id gravida magna. Maecenas fringilla auctor diam consectetur placerat. Suspendisse non convallis ligula. Aenean sagittis eu erat quis efficitur. Maecenas volutpat erat ac varius bibendum. Ut tincidunt, sem id tristique commodo, nunc diam suscipit lectus, vel",
-  image: 'http://res.cloudinary.com/atf19/image/upload/c_crop,h_250,w_358,x_150/v1500465309/pexels-photo-206470_nwtgor.jpg',
+  image: 'https://cdn.shopify.com/s/files/1/0056/3317/9717/products/1-zoom.jpg?v=1539085433',
   images: [
     'http://res.cloudinary.com/atf19/image/upload/c_crop,h_250,w_358,x_150/v1500465309/pexels-photo-206470_nwtgor.jpg',
     'http://res.cloudinary.com/atf19/image/upload/c_crop,h_250,x_226,y_54/v1500465309/pexels-photo-521197_hg8kak.jpg',
