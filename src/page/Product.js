@@ -9,6 +9,7 @@ import { View, Container, Content, Button, Left, Right,  Picker, Item, Grid, Col
 import { Actions } from 'react-native-router-flux';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import {Icon} from 'react-native-elements';
+import  {fetch} from 'fetch';
 // Our custom files and classes import
 import Colors from '../Colors';
 import Text from '../component/Text';
@@ -24,13 +25,44 @@ export default class Product extends Component {
       activeSlide: 0,
       quantity: 1,
       selectedColor: '',
-      selectedSize: ''
+      selectedSize: '',
+      items: []
     };
   }
 
+ /* createProducts(product) {
+    obj = {
+    id: product.id,
+    title: product.title,
+    //price: 500,
+    image: product.images[0].src,
+    }
+    return obj;
+  };
+*/
   componentWillMount() {
     //get the product with id of this.props.product.id from your server
-    this.setState({product: dummyProduct});
+   this.setState({product: dummyProduct});
+
+    /*const dummyProduct = [];
+    fetch('https://myntra-clone.myshopify.com/admin/products.json', {
+      method: 'POST',
+      headers: new Headers({
+        'X-Shopify-Access-Token': '98b5c4001fd4c42b4f7afa01b596bbb5',
+      }),
+      //json: true,
+    }).then(response => response.json())
+    .then(response => {
+      console.log(response);
+      if(response.products.length === 0) {
+      } else {
+        
+        this.setState({product: dummyProduct});
+      }
+    })
+      .catch((error) => {
+        console.error(error);
+      })*/
   }
 
   componentDidMount() {
@@ -311,6 +343,7 @@ export default class Product extends Component {
 
 const dummyProduct = {
   
+  
   id: 2,
   title: 'V NECK T-SHIRT',
   description: "Pellentesque orci lectus, bibendum iaculis aliquet id, ullamcorper nec ipsum. In laoreet ligula vitae tristique viverra. Suspendisse augue nunc, laoreet in arcu ut, vulputate malesuada justo. Donec porttitor elit justo, sed lobortis nulla interdum et. Sed lobortis sapien ut augue condimentum, eget ullamcorper nibh lobortis. Cras ut bibendum libero. Quisque in nisl nisl. Mauris vestibulum leo nec pellentesque sollicitudin. Pellentesque lacus eros, venenatis in iaculis nec, luctus at eros. Phasellus id gravida magna. Maecenas fringilla auctor diam consectetur placerat. Suspendisse non convallis ligula. Aenean sagittis eu erat quis efficitur. Maecenas volutpat erat ac varius bibendum. Ut tincidunt, sem id tristique commodo, nunc diam suscipit lectus, vel",
@@ -331,3 +364,4 @@ const dummyProduct = {
     {id: 12, title: 'V NECK T-SHIRT', price: '29$', image: 'http://res.cloudinary.com/atf19/image/upload/c_crop,h_250/v1500465308/pexels-photo-179909_ddlsmt.jpg'}
   ]
 };
+
